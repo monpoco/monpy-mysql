@@ -38,14 +38,14 @@ class PoolManager {
 
     var self = this;
 
-    return new Promise( (resave, reject) => {
+    return new Promise( (resolve, reject) => {
 
       self._pool.getConnection(selecter, function(err, connection){
 
         if(err)
           return reject(err);
 
-        resave(connection);
+        resolve(connection);
 
       });
     });

@@ -86,7 +86,7 @@ module.exports = class BaseModel {
     if(placeholder)
       debug('[Placeholder]', placeholder);
 
-    return new Promise( (resave, reject) => {
+    return new Promise( (resolve, reject) => {
       if(!global.__monpymysql || !global.__monpymysql.manager)
         return reject( new Error('PoolManager is not defined.\n Please call `require(\'monpy-db\').createPoolManager();`') );
 
@@ -102,7 +102,7 @@ module.exports = class BaseModel {
 
           if(err)
             return reject(err);
-          resave(res);
+          resolve(res);
 
         });
       }).catch(reject);
@@ -453,7 +453,7 @@ module.exports = class BaseModel {
     if(!fldName)
       fldName = this.table_name + '_id';
 
-    return new Promise(function(resave, reject){
+    return new Promise(function(resolve, reject){
 
       asyncEach(rows, function(data, i, a, b){
 
@@ -472,7 +472,7 @@ module.exports = class BaseModel {
 
         }
       }).then(function(){
-        resave(rows);
+        resolve(rows);
       }).catch(reject);
 
     });
@@ -588,9 +588,9 @@ module.exports = class BaseModel {
 function asyncEach(array, next) {
   var len = array.length;
   var incr = 0;
-  return new Promise(function(resave, reject){
+  return new Promise(function(resolve, reject){
     function _exec(){
-      if(incr >= len) return resave();
+      if(incr >= len) return resolve();
       incr++;
       (new Promise(function(a, b){next(array[incr-1], incr-1, a, b);})).then(_exec).catch(reject);
     }
