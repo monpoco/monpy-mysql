@@ -1,0 +1,31 @@
+{
+  "name": "monpy-mysql",
+  "version": "1.0.0",
+  "description": "database model",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monpoco/monpy-mysql.git"
+  },
+  "keywords": [
+    "model",
+    "mysql"
+  ],
+  "author": "monpoco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/monpoco/monpy-mysql/issues"
+  },
+  "homepage": "https://github.com/monpoco/monpy-mysql#readme",
+  "dependencies": {
+    "debug": "^2.2.0",
+    "monpy-util": "^0.1.2",
+    "mysql": "^2.10.2"
+  }
+}
