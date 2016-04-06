@@ -8,7 +8,8 @@ npm install monpy-mysql --save
 
 ## Introduction
 
-```
+```js
+
 'use strict';
 
 const co = require('co');
@@ -120,3 +121,5 @@ co(function*(){
 
 
 ## Documents
+
+see : https://github.com/monpoco/monpy-mysql/blob/master/docs/README.md
